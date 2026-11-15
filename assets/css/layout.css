@@ -1,0 +1,58 @@
+/* ==========================================================
+   layout.css – Khung trang dùng chung: header, menu, nút SOS, hộp thoại, footer, lưới .grid/.split
+   ========================================================== */
+
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;display:flex;align-items:center;gap:8px;padding:8px 14px;background:var(--pr);color:#fff;flex-wrap:wrap}
+.logo{font-weight:800;font-size:20px;cursor:pointer}
+nav{display:flex;gap:2px;flex-wrap:wrap;flex:1}
+nav a{background:none;border:0;color:#fff;padding:6px 10px;border-radius:8px;cursor:pointer;font:inherit;font-size:14px}
+nav a.on,nav a:hover{background:#ffffff33}
+.header-actions{display:flex;align-items:center;gap:8px;flex:none}
+.theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-width:76px;padding:7px 11px;border:1px solid #ffffff55;border-radius:20px;background:#ffffff18;color:#fff;cursor:pointer;font:700 13px "Baloo 2",Nunito,system-ui,sans-serif;transition:background .2s,transform .2s}
+.theme-toggle:hover{transform:translateY(-1px);background:#ffffff30}
+.theme-toggle svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.sos{background:var(--rd);color:#fff;border:0;border-radius:20px;padding:6px 16px;font-weight:800;cursor:pointer;animation:p 1.6s infinite}
+@keyframes p{50%{box-shadow:0 0 0 8px #e5383b44}}
+main{max-width:1000px;margin:auto;padding:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:700px){
+  .split{grid-template-columns:1fr}
+}
+dialog{border:0;border-radius:16px;max-width:420px;background:var(--card);color:var(--tx)}
+footer{text-align:center;padding:20px;background:var(--pr);color:#fff;margin-top:30px}
+.logo,nav a,.sos{font-family:"Baloo 2",Nunito,system-ui,sans-serif}
+header{background:linear-gradient(90deg,#0057b8,#00b4d8);box-shadow:0 6px 22px #0057b866;border-radius:0 0 22px 22px}
+nav a{font-weight:700;border-radius:20px}
+nav a.on{background:#fff;color:#0057b8}
+.logo{font-size:24px;text-shadow:0 2px 6px #0004}
+footer{background:linear-gradient(90deg,#003a80,#0a84d6);border-radius:28px 28px 0 0}
+@media(max-width:760px){
+  header{padding:8px 10px;gap:6px;border-radius:0 0 16px 16px}
+  .logo{font-size:20px;order:1}
+  .header-actions{order:2;margin-left:auto;gap:6px}
+  .theme-toggle{min-width:68px;padding:6px 9px}
+  .sos{padding:6px 14px}
+  nav{order:3;flex:0 0 100%;flex-wrap:nowrap;overflow-x:auto;gap:4px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  nav::-webkit-scrollbar{display:none}
+  nav a{white-space:nowrap;flex:none;padding:6px 12px}
+  main{padding:12px}
+  .grid{grid-template-columns:1fr}
+  .grid.cols-2-mobile{grid-template-columns:1fr 1fr}
+  dialog{width:calc(100% - 32px)}
+}
+.logo{display:flex;align-items:center;gap:8px}
+.logo .lg{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:#fff;color:#0a84d6;box-shadow:0 3px 8px #0003}
+.logo .lg svg{width:20px;height:20px;fill:currentColor;stroke:none}
+nav{background:#ffffff22;border-radius:26px;padding:3px}
+nav a{display:inline-flex;align-items:center;gap:5px}
+nav a svg{width:16px;height:16px}
+.sos{display:inline-flex;align-items:center;gap:6px}
+.sos svg{width:18px;height:18px}
+@media(max-width:760px){
+  .logo .lg{width:30px;height:30px}
+}
+
+/* --- Bổ sung khi chuyển sang nhiều trang: logo & menu là thẻ <a> --- */
+.logo,nav a{text-decoration:none}
+.logo{color:inherit}
